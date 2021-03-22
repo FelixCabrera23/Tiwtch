@@ -1,0 +1,40 @@
+Ayy es que estoy súper trabadisima. He trabajado co varios lenguajes menos con c++ y me confunde todo. Me dejaron un ejercicio mero fumado
+
+Debo de realizar una especie de caja cuadrada. Y lo único que debo de hacer es solicitarle al usuario el tamaña de la misma.
+
+Por ejemplo si se pidiera un tamaño 4.
+
+El resultado seria el siguiente:
+
+1 2 3 4
+2 4 7 11
+3 7 14 25
+4 11 25 50
+
+Si se pidiera un tamaño de 6.
+
+El resultado seria el siguiente:
+
+1 2 3 4 5 6
+2 4 7 11 16 22
+3 7 14 25 41 63
+4 11 25 50 91 154
+5 16 41 91 182 336
+6 22 63 154 336 672
+
+Si se da cuenta el tamaño horizontal es igual al vertical, la primera fila va de 1 en 1, siempre sera asi.
+
+Pero la segunda fila va saliendo de la suma en diagonal, del 2 + 2=4, el 4 + 3 = 7, el 7 + 4 = 11, etc, y asi sucede con la tercera y las demas filas.
+
+No se puede utilizar el tema de vectores ni matrices par solo debo usar el tamaño que ingresen
+
+Solución:
+
+la primera fila se llena con un cilco cuyo limite es el imput
+
+1,2,3,4,5,6 etc
+
+Las siguientes filas Se llenan diferente entonces hay que poner un condicional.
+
+El condicional tendra que ser que tiene que meter primero el numero de fila que le toca
+luego entonces empieza a hacer sumas

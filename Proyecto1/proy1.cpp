@@ -3,68 +3,69 @@
 * Programa que crea una matriz loca
 
 * instrucciónes para compilar:
-* $ g++ -Wall -pedantic -o proy1 proy1.cpp
+*$ g++ -Wall -pedantic -o proy1 proy1.cpp
 
 */
 
 #include <iostream>
 #include <cstdio>
-#include <cmath>
+
 using namespace std;
 
 int main()
 {
-  // Declarar variables
-  int x;
+    // Declaramos algunas variables importantes
 
-  cout << "ingrese tamaño: ";
-  cin >> x;
-  cout << endl;
+    int n_i; // Estas son las dimensiones de la caja
 
-  const int n = x;
+    // Pedimos al usuario el valor de n
+    cout << "ingrese el tamaño de la caja: ";
+    cin >> n_i;
+    cout << endl;
 
-  int lis1[n] = {0};
-  int lis2[n] = {0};
+    const int n = n_i;
 
-  int i,j,k,l;
+    int A[n] = {0}; // Estas son las listas auxiliares
+    int B[n] = {0};
 
-  for(i=0;i<n;i++)
-  {
-      if(i==0)
-      {
-          for(j=0;j<n;j++)
+    int i,j; // Variables auxiliares de conteo
+
+    for( i=0; i<n; i++) // Este ciclo corre por cada fila
+    {
+          if( i==0 ) // si nuestra fila es la 0 la llenamos asi:
           {
-              lis1[j]=j+1;
-          }
-          for (const auto& e : lis1)
-          {
-              cout << e <<" ";
-          }
-          cout << endl;
-      }
-      else
-      {
-          for(k=0;k<n;k++)
-          {
-              if(k==0)
+              for( j=0; j<n; j++)
               {
-                 lis2[k]=i+1;
+                  A[j]= j+1;
               }
-              else
+              for (const auto& e : A)
               {
-                  lis2[k] = lis1[k]+lis2[k-1];
+                  cout << e << " ";
+              }
+              cout << endl;
+          }
+          else // si nuestra fila es distina a la 0 entonces:
+          {
+              for( j=0; j<n;j++) // este cilco va cambiando las columnas
+              {
+                  if(j==0)
+                  {
+                      B[0] = i+1;
+                  }
+                  else
+                  {
+                      B[j] = B[j-1]+A[j];
+                  }
+              }
+              for (const auto& e : B)
+              {
+                  cout << e << " ";
+              }
+              cout << endl;
+              for( j=0;j<n;j++ )
+              {
+                  A[j] = B[j];
               }
           }
-          for (const auto& e : lis2)
-          {
-              cout << e <<" ";
-          }
-          cout << endl;
-          for(l=0;l<n;l++)
-          {
-              lis1[l] = lis2[l];
-          }
-      }
-  }
-// fin
+    }
 }
